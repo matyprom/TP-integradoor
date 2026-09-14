@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta
 def validar_estacion(lugar):
     if lugar.strip() != "":
         return True
@@ -10,6 +11,14 @@ def validar_humedad(humedad_valido):
             return True
         return False
     except ValueError:
+        return False
+def validar_presion(pnm_valido):
+    try:
+        pnm = float(pnm_valido)
+        if 800 <= pnm <= 1100:
+            return pnm
+        return False
+    except (ValueError, TypeError):
         return False
 
 def validar_direccion_viento(dd_valido):  
@@ -32,29 +41,27 @@ def validar_velocidad_viento(ff_valido):
 
 
 def validar_hora(hora_valida):
-    if hora_valida.isdigit():
-        try:
-            hora = int(hora_valida)
-            if 0 <= hora <= 23:
-                return True
-        except ValueError:
-            return False
-    return False
+    try:
+        hora_str = str(hora_valida).zfill(2)
+        return datetime.strptime(hora_str, "%H").time()
+    except ValueError:
+        return False
 
 
 def validar_fecha(fecha):
     try:
-        if len(fecha) == 8:
-            anio = int(fecha[0:2])
-            mes = int(fecha[2:4])
-            dia = int(fecha[4:8])
-            if 1 <= dia <= 31:
-                if 1 <= mes <= 12:
-                    if anio<2030:
-                        return True
+        fecha_str = str(fecha)
+        if len(fecha_str) == 8:
+            return datetime.strptime(fecha_str, "%d%m%Y").date()
         return False
     except ValueError:
-        print("el dato no es un numero") 
-        exit(1)
-fecha="20552000"
-print (validar_fecha(fecha))
+        return False
+
+def validar_temperatura(temp_valida):
+    try:
+        temp = float(temp_valida)
+        if -90 <= temp <= 60:
+            return temp
+        return False
+    except (ValueError, TypeError):
+        return False
