@@ -15,16 +15,17 @@ try:
                     continue
 
 
-                datos=linea.split()
-                fecha=datos[0]
-                hora=datos[1]
-                temp=datos[2]
-                humedad=datos[3]
-                PNM=datos[4]
-                DD=datos[5]
-                FF=datos[6]
-                lugar=" ".join(datos[7:])
-
+                datos = linea.split()
+                fecha = datos[0]
+                hora = datos[1]
+                temp = datos[2]
+                humedad = datos[3]
+                PNM = datos[4]
+                DD = datos[5]
+                FF = datos[6]
+                lugar = " ".join(datos[7:])
+                # print(lugar)
+                print(lugar)
 
             fecha_valida = funciones.validar_fecha(fecha)
             hora_valida = funciones.validar_hora(hora)
