@@ -6,7 +6,7 @@ import funciones
 archivo_txt = sys.argv[1]
 archivo_json = sys.argv[2]
 
-validos = []
+validos = {}
 invalidos = []
 
 try:
@@ -48,10 +48,10 @@ try:
                 ff_ok = funciones.validar_velocidad_viento(FF)
                 lugar_ok = funciones.validar_estacion(lugar)
 
-                if (fecha_valida and hora_valida and temperatura_ok and 
-                            humedad_ok and PNM_ok and dd_ok and ff_ok and lugar_ok):
-                            
-                            validos.append({
+                if (fecha_valida and hora_valida and temperatura_ok and humedad_ok and PNM_ok and dd_ok and ff_ok and lugar_ok):
+                            if lugar not in validos:
+                                   validos[lugar] = []
+                            validos[lugar].append({
                                 "fecha": fecha,
                                 "hora": hora,
                                 "temp": temp,
@@ -59,7 +59,6 @@ try:
                                 "PNM": PNM,
                                 "DD": DD,
                                 "FF": FF,
-                                "lugar": lugar
                             })
                 else:
                     invalidos.append(linea_limpia)
@@ -75,4 +74,5 @@ try:
 except FileNotFoundError:
     print(f"Error: No se encontró el archivo '{archivo_txt}' en la carpeta actual.")
 sys.exit(1)
+
 
