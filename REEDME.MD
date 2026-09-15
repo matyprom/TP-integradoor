@@ -23,6 +23,10 @@ datohorario.txt
 FECHA     HORA  TEMP   HUM   PNM     DD    FF     NOMBRE
          [HOA]  [°C]   [%]  [hPa]   [gr] [km/hr]
 
+##datohorario.txt
+este archivo de txt es uno que contiene las observaciones horarias del Servicio Meteorológico Nacional separadas por espacios o ancho de columnas.
+Columnas principales: Fecha, Hora, Temperatura (TEMP), Humedad (HUM), Presión a nivel del mar (PNM), Dirección del viento (DD), Velocidad del viento (FF) y Nombre de la estación (NOMBRE).
+
 
 ## validaciones del codigo(funciones)
 el modulo funciones_json.py verifica que cada campo cumpla con las siguientes reglas mínimas:
@@ -37,7 +41,35 @@ Humedad: Debe ser un valor numérico en el rango de 0 a 100.
 
 Dirección del viento: Debe ser un valor numérico entre 0 y 360 grados.
 
-Velocidad del viento: Debe ser un valor numérico mayor o igual a 0.
 
-Estación (Nombre): No puede ser una cadena vacía.
+## Archivos necesarios:
+El script principal de procesamiento (script.py).
+El módulo de validaciones (funciones.py).
+El archivo de entrada con los datos principales (datohorario.txt).
+
+El programa se ejecuta desde la consola pasando **dos argumentos obligatorios** por línea de comandos: la ruta del archivo de entrada y la ruta del archivo de salida.
+python .\datos.py datohorario.txt salida.json
+En Linux / macOS:
+python3 datos.py datohorario.txt salida.json
+
+
+##formato del json generado
+
+```
+{
+    "registros_validos": [
+        {
+            "fecha": "",
+            "hora": "",
+            "temp": "",
+            "humedad": "",
+            "PNM": "",
+            "DD": "",
+            "FF": "",
+            "lugar": ""
+        }
+    ],
+    "registros_invalidos": [  ]
+                                    
+```
 
