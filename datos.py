@@ -67,9 +67,9 @@ try:
                         "registros_invalidos": invalidos
                     }
 
-                with open(archivo_json, "w",) as f_json:
-                        json.dump(resultado, f_json,)
-                print(f"Válidos: {len(validos)} | Inválidos: {len(invalidos)}")
+    with open(archivo_json, "w",) as f_json:
+            json.dump(resultado, f_json,)
+    print(f"Válidos: {len(validos)} | Inválidos: {len(invalidos)}")
 
 except FileNotFoundError:
     print(f"Error: No se encontró el archivo '{archivo_txt}' en la carpeta actual.")
