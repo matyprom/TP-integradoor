@@ -1,67 +1,66 @@
 from datetime import datetime, timedelta
-def validar_estacion(lugar):
+def validar_lugar(lugar):
     if lugar.strip() != "":
         return True
     return False
 
-def validar_humedad(humedad_valido):
+def validar_humedad(humedad):
     try:
-        humedad = float(humedad_valido)
-        if 0 <= humedad <= 100:
+        humedad_validad = float(humedad)
+        if 0 <= humedad_validad <= 100:
             return True
         return False
     except ValueError:
         return False
-def validar_presion(pnm_valido):
+def validar_presion(pnm):
     try:
-        pnm = float(pnm_valido)
-        if 800 <= pnm <= 1100:
-            return pnm
+        pnm_valido= float(pnm)
+        if 800 <= pnm_valido <= 1100:
+            return True
         return False
     except (ValueError, TypeError):
         return False
 
-def validar_direccion_viento(dd_valido):  
+def validar_direccion_viento(dd):  
     try:
-        DD = float(dd_valido)
-        if 0 <= DD <= 360:
+        DD_valido = float(dd)
+        if 0 <= DD_valido <= 360:
             return True
         return False
     except ValueError:
         return False
 
-def validar_velocidad_viento(ff_valido):
+def validar_velocidad_viento(ff):
     try:
-        FF = float(ff_valido)
-        if FF >= 0:
+        FF_valido = float(ff)
+        if FF_valido >= 0:
             return True
         return False
     except ValueError:
         return False
 
 
-def validar_hora(hora_valida):
+def validar_hora(hora):
     try:
-        hora_str = str(hora_valida).zfill(2)
-        return datetime.strptime(hora_str, "%H").time()
+        if len(hora)<=2:
+            return datetime.strptime(hora, "%H").time()
     except ValueError:
         return False
 
 
 def validar_fecha(fecha):
     try:
-        fecha_str = str(fecha)
-        if len(fecha_str) == 8:
-            return datetime.strptime(fecha_str, "%d%m%Y").date()
+        if len(fecha) == 8:
+            return datetime.strptime(fecha, "%d%m%Y").date()
         return False
     except ValueError:
         return False
 
-def validar_temperatura(temp_valida):
+def validar_temperatura(temp):
     try:
-        temp = float(temp_valida)
-        if -90 <= temp <= 60:
-            return temp
+        temp_valida = float(temp)
+        if -90 <= temp_valida <= 60:
+            return temp_valida
         return False
     except (ValueError, TypeError):
         return False

@@ -46,7 +46,7 @@ try:
                 PNM_ok = funciones.validar_presion(PNM)
                 dd_ok = funciones.validar_direccion_viento(DD)
                 ff_ok = funciones.validar_velocidad_viento(FF)
-                lugar_ok = funciones.validar_estacion(lugar)
+                lugar_ok = funciones.validar_lugar(lugar)
 
                 if (fecha_valida and hora_valida and temperatura_ok and humedad_ok and PNM_ok and dd_ok and ff_ok and lugar_ok):
                             if lugar not in validos:

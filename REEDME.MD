@@ -1,4 +1,4 @@
-# Trabajo Práctico Integrador 1 - Parte 1 y 2
+# Trabajo Practico Integrador 1 - Parte 1 y 2
 # Alicacion datos de ciudades
 
 ## Informacion del grupo
@@ -8,16 +8,16 @@
 * Matias Ramirez
 * Renzo Terraza
 
-## Descripción del proyecto
-El objetivo final de esta primera parte del proyecto es hacer un conversor de TXT a JSON.
-En esta primera instacia con el programa leyo los datos en el txt y los separo en variables, luego hicimos otra archivo.py para las funciones de validar los datos del archivo.tx. El programa se ejecuta desde la consola pasando como argumentos la ruta del archivo .txt de entrada y la ruta del archivo .json de salida.
+## Descripcion del proyecto
+El objetivo final del proyecto es hacer un conversor de TXT a JSON.
+El programa lee los datos del txt y los separa en variables, luego con otro archivo .py donde estan las funciones de validar los datos del archivo.txt, se validan esa variables para que no de error al compilar el programa. El programa se ejecuta desde la consola pasando como argumentos la ruta del archivo .txt de entrada y la ruta del archivo .json de salida.
 
 
 ## Forma de ejecucion prevista 
-El programa se ejecuta desde la consola pasando dos argumentos obligatorios por línea de comandos: la ruta del archivo de entrada (.txt) y la ruta del archivo de salida (.json).
+El programa se ejecuta desde la consola pasando dos argumentos obligatorios por linea de comandos: la ruta del archivo de entrada (.txt) y la ruta del archivo de salida (.json). Por ejemplo: "python datos.py datohorario.txt, janson.json"
 
 Archivo de entrada (.txt)
-El texto proviene del Servicio Meteorológico Nacional con ancho de columnas o separado por espacios, incluyendo encabezados y observaciones horarias:
+El texto proviene del Servicio Meteorologico Nacional con ancho de columnas o separado por espacios, incluyendo encabezados y observaciones horarias:
 datohorario.txt
 
 ```
@@ -26,22 +26,28 @@ FECHA     HORA  TEMP   HUM   PNM     DD    FF     NOMBRE
 ```
 
 ##datohorario.txt
-este archivo de txt es uno que contiene las observaciones horarias del Servicio Meteorológico Nacional separadas por espacios o ancho de columnas.
-Columnas principales: Fecha, Hora, Temperatura (TEMP), Humedad (HUM), Presión a nivel del mar (PNM), Dirección del viento (DD), Velocidad del viento (FF) y Nombre de la estación (NOMBRE).
+este archivo de txt es uno que contiene las observaciones horarias del Servicio Meteorologico Nacional separadas por espacios o ancho de columnas.
+Columnas principales: Fecha, Hora, Temperatura (TEMP), Humedad (HUM), Presión a nivel del mar (PNM), Direccion del viento (DD), Velocidad del viento (FF) y Nombre del lugar (NOMBRE).
 
 
 ## validaciones del codigo(funciones)
-el modulo funciones_json.py verifica que cada campo cumpla con las siguientes reglas mínimas:
+el modulo funciones_json.py verifica que cada campo cumpla con las siguientes reglas minimas:
 
-Fecha: Debe tener formato de 8 dígitos (DDMMAAAA) y corresponder a una fecha válida existente en el calendario.
+Fecha: Debe tener formato de 8 digitos (DDMMAAAA) 
 
-Hora: Debe ser un valor entero entre 0 y 23.
+Hora: Debe tener un formato de 2 digitos.
 
-Conversión a número: Temperatura, humedad, presión, dirección y velocidad del viento deben ser convertibles a tipo numérico (int o float).
+Humedad: Debe ser un valor numerico en el rango de 0 a 100.
 
-Humedad: Debe ser un valor numérico en el rango de 0 a 100.
+Direccion del viento: Debe ser un valor numerico entre 0 y 360 grados.
 
-Dirección del viento: Debe ser un valor numérico entre 0 y 360 grados.
+Temperatura: Debe ser un valor numerico entre -90.0 y 60.0 °C.
+
+Presión (PNM): Debe ser un valor numerico entre 800.0 y 1100.0 hPa.
+
+Velocidad del viento: Debe ser un valor numerico mayor o igual a 0 km/h.
+
+lugar: Debe ser una cadena de texto no vacia.
 
 
 ## Archivos necesarios:
@@ -49,29 +55,28 @@ El script principal de procesamiento (script.py).
 El módulo de validaciones (funciones.py).
 El archivo de entrada con los datos principales (datohorario.txt).
 
-El programa se ejecuta desde la consola pasando **dos argumentos obligatorios** por línea de comandos: la ruta del archivo de entrada y la ruta del archivo de salida.
+El programa se ejecuta desde la consola pasando **dos argumentos obligatorios** por linea de comandos: la ruta del archivo de entrada y la ruta del archivo de salida.
 python .\datos.py datohorario.txt salida.json
 En Linux / macOS:
 python3 datos.py datohorario.txt salida.json
 
 
 ##formato del json generado
-
 ```
 {
-    "registros_validos": [
-        {
-            "fecha": "",
-            "hora": "",
-            "temp": "",
-            "humedad": "",
-            "PNM": "",
-            "DD": "",
-            "FF": "",
-            "lugar": ""
-        }
-    ],
-    "registros_invalidos": [  ]
-                                    
+    "registros_validos": {
+        "Lugar de las mediciones": [
+            {
+                "fecha": "",
+                "hora": "",
+                "temp": "",
+                "humedad": "",
+                "PNM": "",
+                "DD": "",
+                "FF": ""
+            },
+        ]
+    }
+}
+            "registros_invalidos": [  ]
 ```
-
