@@ -20,8 +20,10 @@ Archivo de entrada (.txt)
 El texto proviene del Servicio Meteorológico Nacional con ancho de columnas o separado por espacios, incluyendo encabezados y observaciones horarias:
 datohorario.txt
 
+```
 FECHA     HORA  TEMP   HUM   PNM     DD    FF     NOMBRE
          [HOA]  [°C]   [%]  [hPa]   [gr] [km/hr]
+```
 
 ##datohorario.txt
 este archivo de txt es uno que contiene las observaciones horarias del Servicio Meteorológico Nacional separadas por espacios o ancho de columnas.
