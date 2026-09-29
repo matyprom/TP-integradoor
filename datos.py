@@ -36,7 +36,6 @@ try:
                             DD = datos[5]
                             FF = datos[6]
                             lugar = " ".join(datos[7:])
-                print(len(datos), PNM, lugar)
 
 
                 fecha_valida = funciones.validar_fecha(fecha)
@@ -50,7 +49,7 @@ try:
 
                 if (fecha_valida and hora_valida and temperatura_ok and humedad_ok and PNM_ok and dd_ok and ff_ok and lugar_ok):
                             if lugar not in validos:
-                                   validos[lugar] = []
+                                validos[lugar] = []
                             validos[lugar].append({
                                 "fecha": fecha,
                                 "hora": hora,
@@ -60,8 +59,47 @@ try:
                                 "DD": DD,
                                 "FF": FF,
                             })
-                else:
-                    invalidos.append(linea_limpia)
+                elif(fecha_valida==False):
+                    invalidos.append({"numero_de_linea": i,
+                                      "error_en": "fecha",
+                                      "dato_invalido": fecha
+                                      })
+                elif(hora_valida==False):
+                    invalidos.append({"numero_de_linea": i,
+                                      "error_en": "hora",
+                                      "dato_invalido": hora
+                                      })
+                elif(temperatura_ok==False):
+                    invalidos.append({"numero_de_linea": i,
+                                      "error_en": "temperatura",
+                                      "dato_invalido": temp
+                                      })
+                elif(humedad_ok==False):
+                    invalidos.append({"numero_de_linea": i,
+                                      "error_en": "humedad",
+                                      "dato_invalido": humedad
+                                      })
+                elif(PNM_ok==False):
+                    invalidos.append({"numero_de_linea": i,
+                                      "error_en": "presion",
+                                      "dato_invalido": PNM
+                                      })
+                elif(dd_ok==False):
+                    print("entro")
+                    invalidos.append({"numero_de_linea": i,
+                                      "error_en": "grados",
+                                      "dato_invalido": DD
+                                      })
+                elif(ff_ok==False):
+                    invalidos.append({"numero_de_linea": i,
+                                      "error_en": "km/hr",
+                                      "dato_invalido": FF
+                                      })
+                elif(lugar_ok==False):
+                    invalidos.append({"numero_de_linea": i,
+                                      "error_en": "lugar",
+                                      "dato_invalido": lugar
+                                      })
                 resultado = {
                         "registros_validos": validos,
                         "registros_invalidos": invalidos

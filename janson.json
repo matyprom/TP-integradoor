@@ -885,6 +885,10 @@
         ]
     },
     "registros_invalidos": [
-        "23082026    12  10.9   53  1027.5  990    7     AEROPARQUE AERO"
+        {
+            "numero_de_linea": 14,
+            "error_en": "grados",
+            "dato_invalido": "990"
+        }
     ]
 }
