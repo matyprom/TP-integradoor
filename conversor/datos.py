@@ -1,7 +1,7 @@
 import sys
 import json
 from datetime import datetime, timedelta
-import funciones
+import conversor.funciones as funciones
     
 archivo_txt = sys.argv[1]
 archivo_json = sys.argv[2]
