@@ -1,6 +1,6 @@
 import sys
 
-from datos import cargar_json, filtrar_datos
+from app_web.datos_json import cargar_json, filtrar_datos
 from estadisticas import calcular_estadisticas
 from graficos import generar_grafica
 
