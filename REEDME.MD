@@ -12,7 +12,7 @@
 El objetivo final del proyecto es hacer un conversor de TXT a JSON.
 El programa lee los datos del txt y los separa en variables, luego con otro archivo .py donde estan las funciones de validar los datos del archivo.txt, se validan esa variables para que no de error al compilar el programa. El programa se ejecuta desde la consola pasando como argumentos la ruta del archivo .txt de entrada y la ruta del archivo .json de salida.
 
-
+#etapa_1
 ## Forma de ejecucion prevista 
 El programa se ejecuta desde la consola pasando dos argumentos obligatorios por linea de comandos: la ruta del archivo de entrada (.txt) y la ruta del archivo de salida (.json). Por ejemplo: "python datos.py datohorario.txt, janson.json"
 
@@ -80,3 +80,5 @@ python3 datos.py datohorario.txt salida.json
 }
             "registros_invalidos": [  ]
 ```
+#etapa_2
+
