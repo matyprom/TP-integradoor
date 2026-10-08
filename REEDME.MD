@@ -13,6 +13,7 @@ El objetivo final del proyecto es hacer un conversor de TXT a JSON.
 El programa lee los datos del txt y los separa en variables, luego con otro archivo .py donde estan las funciones de validar los datos del archivo.txt, se validan esa variables para que no de error al compilar el programa. El programa se ejecuta desde la consola pasando como argumentos la ruta del archivo .txt de entrada y la ruta del archivo .json de salida.
 
 #etapa_1
+
 ## Forma de ejecucion prevista 
 El programa se ejecuta desde la consola pasando dos argumentos obligatorios por linea de comandos: la ruta del archivo de entrada (.txt) y la ruta del archivo de salida (.json). Por ejemplo: "python datos.py datohorario.txt, janson.json"
 
@@ -81,4 +82,43 @@ python3 datos.py datohorario.txt salida.json
             "registros_invalidos": [  ]
 ```
 #etapa_2
+Archivos y Módulos de la Etapa 2
 
+Archivo de entrada (.json)
+El archivo proviene de la conversión realizada en la etapa 1 y contiene los registros meteorológicos válidos estructurados por estación y fecha/hora:
+salida.json
+
+```json
+{
+    "registros_validos": {
+        "AEROPARQUE AERO": [
+            {
+                "fecha": "23082026",
+                "hora": "0",
+                "temp": "10.7",
+                "humedad": "44",
+                "PNM": "1023.9",
+                "DD": "260",
+                "FF": "6"
+            }
+        ]
+    }
+}
+
+los códigos está conformado de la siguiente forma:
+
+procesar_datos.py: 
+Archivo principal de ejecución. Se encarga de recibir los parámetros por consola y orquestar el flujo llamando a las otras funciones.
+
+datos_json.py:
+cargar_json(ruta): Carga el archivo .json en memoria.
+filtrar_datos(datos, estacion, medicion): Extrae únicamente los valores de la medición requerida para la estación especificada.
+
+estadisticas.py:
+calcular_estadisticas(filtrados): Calcula y retorna la cantidad de registros, el valor mínimo, el valor máximo y el promedio.
+generar_csv(filtrados, estacion, medicion, nombre_archivo): Exporta los datos filtrados a un archivo CSV.
+
+graficos.py:
+generar_grafica(filtrados, estacion, medicion): Genera un gráfico de línea usando la librería matplotlib y lo guarda como un archivo de imagen (.png).
+
+para ejecutar la Etapa 2 es necesario tener instalada la librería gráfica matplotlib.
