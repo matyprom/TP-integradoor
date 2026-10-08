@@ -88,7 +88,8 @@ Archivo de entrada (.json)
 El archivo proviene de la conversión realizada en la etapa 1 y contiene los registros meteorológicos válidos estructurados por estación y fecha/hora:
 salida.json
 
-```json
+```
+json ejemplo
 {
     "registros_validos": {
         "AEROPARQUE AERO": [
@@ -104,7 +105,7 @@ salida.json
         ]
     }
 }
-
+```
 los códigos está conformado de la siguiente forma:
 
 procesar_datos.py: 
