@@ -12,8 +12,6 @@
 El objetivo final del proyecto es hacer un conversor de TXT a JSON.
 El programa lee los datos del txt y los separa en variables, luego con otro archivo .py donde estan las funciones de validar los datos del archivo.txt, se validan esa variables para que no de error al compilar el programa. El programa se ejecuta desde la consola pasando como argumentos la ruta del archivo .txt de entrada y la ruta del archivo .json de salida.
 
-#etapa_1
-
 ## Forma de ejecucion prevista 
 El programa se ejecuta desde la consola pasando dos argumentos obligatorios por linea de comandos: la ruta del archivo de entrada (.txt) y la ruta del archivo de salida (.json). Por ejemplo: "python datos.py datohorario.txt, janson.json"
 
@@ -122,4 +120,6 @@ generar_csv(filtrados, estacion, medicion, nombre_archivo): Exporta los datos fi
 graficos.py:
 generar_grafica(filtrados, estacion, medicion): Genera un gráfico de línea usando la librería matplotlib y lo guarda como un archivo de imagen (.png).
 
-para ejecutar la Etapa 2 es necesario tener instalada la librería gráfica matplotlib.
+para ejecutar la Etapa 2 es necesario tener instalada la librería gráfica matplotlib, streamlit y pandas.
+
+la aplicación web interactiva desarrollada con **Streamlit** que permite visualizar, filtrar, calcular estadísticas y graficar datos meteorológicos/observaciones a partir de un archivo JSON
