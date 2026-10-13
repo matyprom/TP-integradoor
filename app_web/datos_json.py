@@ -5,22 +5,16 @@ def cargar_json(ruta_json):
     with open(ruta_json, "r") as archivo:
         datos = json.load(archivo)
     return datos
-# for clave, valor in datos.items():
-    # for lugar, dato in valor.items():
-    #     if lugar == estacion:
-    #         for lectura in dato:
-    #             if medicion in lectura:
-    #                 resultado.append(lectura[medicion])
 def filtrar_datos(datos, estacion, medicion):
     resultado=[]
     for clave, valor in datos.items():
-        for lugar, dato in valor:
-            if lugar == estacion:
-                for lectura in dato:
-                    if medicion in lectura:
-                        resultado.append(lectura[medicion])
+            if clave == "registros_validos": 
+                for lugar, dato in valor.items():
+                    if lugar == estacion:
+                        for lectura in dato:
+                            if medicion in lectura:
+                                resultado.append(lectura[medicion])
     return(resultado)
-        
 
 datos= {"registros_validos": {
             "AEROPARQUE AERO": [
