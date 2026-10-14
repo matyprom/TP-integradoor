@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 
-
 def generar_grafica(filtrados, estacion, medicion):
     valores = []
     nombre_archivo = "app_web/salidas/grafica.png"
