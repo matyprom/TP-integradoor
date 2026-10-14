@@ -1,4 +1,8 @@
 import matplotlib.pyplot as plt
+<<<<<<< HEAD
+=======
+
+>>>>>>> cambios-recientes
 def generar_grafica(filtrados, estacion, medicion):
 
     plt.plot([float(x) for x in filtrados])
