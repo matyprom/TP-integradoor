@@ -25,5 +25,3 @@ def generar_csv(filtrados, estacion, medicion, nombre_archivo="salida.csv"):
         archivo.write("estacion,medicion,valor\n")
         for valor in filtrados:
             archivo.write(f"{estacion},{medicion},{valor}\n")
-
-print(generar_csv(mediciones_prueba,"AEROPARQUE AERO","temp","app_web/salidas/aeroparque_temp.csv"))
